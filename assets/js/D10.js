@@ -14,7 +14,7 @@ REGOLE
 */
 
 console.log("---Esercizio A---");
-const sum = 10+20;
+const sum = 10 + 20;
 console.log(sum);
 
 
@@ -45,7 +45,7 @@ console.log(me);
 */
 
 console.log("---Esercizio D---");
-delete(me.age);
+delete (me.age);
 console.log(me);
 
 /* ESERCIZIO E
@@ -92,15 +92,15 @@ console.log(dice());
 
 console.log("---Esercizio 2---");
 function whoIsBigger(element, element2) {
-  if(element === element2){
+  if (element === element2) {
     return "i numeri sono uguali";
-  }else if(element > element2){
+  } else if (element > element2) {
     return element;
-  }else{
+  } else {
     return element2;
   }
 }
-console.log(whoIsBigger(6,8));
+console.log(whoIsBigger(6, 8));
 
 /* ESERCIZIO 3
   Crea una funzione chiamata "splitMe" che riceve una stringa come parametro e ritorna un'array contenente ogni parola della stringa.
@@ -123,7 +123,7 @@ console.log("---Esercizio 4---");
 function deleteOne(string, bool) {
   if (bool === true) {
     return string.slice(1);
-  }else{
+  } else {
     return string.slice(0, -1);
   }
 }
@@ -141,9 +141,9 @@ function onlyLetters(element) {
   const char = element.split("");
   for (let i = 0; i < char.length; i++) {
     for (let j = 0; j < 10; j++)
-      if(parseInt(char[i]) === j) {
+      if (parseInt(char[i]) === j) {
         char.splice(i, 1);
-    }
+      }
   }
   return char.join("");
 }
@@ -160,7 +160,7 @@ function isThisAnEmail(element) {
   if (regex.test(element)) {
     return "email valida";
     ;
-  }else{
+  } else {
     return "email non valida";
   }
 }
@@ -215,7 +215,7 @@ console.log("---Esercizio 9---");
 function howManyDays(element) {
   const date = new Date(element);
   const todayDate = new Date();
-  return Math.floor((todayDate - date) /1000 /60 /60 /24);
+  return Math.floor((todayDate - date) / 1000 / 60 / 60 / 24);
 }
 console.log(howManyDays("2003-02-15"));
 
@@ -226,13 +226,13 @@ console.log(howManyDays("2003-02-15"));
 console.log("---Esercizio 10---");
 function isTodayMyBirthday() {
   const todayDate = new Date();
-  if(`${todayDate.getDate()}-${todayDate.getMonth()+1}` === "15-02"){
+  if (`${todayDate.getDate()}-${todayDate.getMonth() + 1}` === "15-02") {
     return true;
-  }else{
+  } else {
     return false;
   }
 }
-console.log("È il mio compleanno =",isTodayMyBirthday());
+console.log("È il mio compleanno =", isTodayMyBirthday());
 
 
 // Arrays & Oggetti
@@ -365,7 +365,7 @@ function deleteProp(obj, string) {
   delete obj[string];
   return obj;
 }
-console.log(deleteProp({capelli: "rossi", occhi: "marroni", etnia: "caucasico",}, "occhi"));
+console.log(deleteProp({ capelli: "rossi", occhi: "marroni", etnia: "caucasico", }, "occhi"));
 
 /* ESERCIZIO 12
   Scrivi una funzione chiamata "newestMovie" che trova il film più recente nell'array "movies" fornito.
@@ -376,9 +376,9 @@ function newestMovie() {
   let year = 0;
   let film;
   movies.forEach((element) => {
-    if(parseInt(element.Year) > year){
+    if (parseInt(element.Year) > year) {
       year = parseInt(element.Year);
-      film = {...element};
+      film = { ...element };
     }
   });
   return film;
@@ -416,8 +416,8 @@ console.log("---Esercizio 15---");
 function onlyInLastMillennium() {
   const oldFilm = [];
   movies.forEach((element) => {
-    if(parseInt(element.Year) < 2001){
-      oldFilm.push({...element})
+    if (parseInt(element.Year) < 2001) {
+      oldFilm.push({ ...element })
     }
   });
   return oldFilm
@@ -440,7 +440,7 @@ console.log(sumAllTheYears());
 
 console.log("---Esercizio 17---");
 function searchByTitle(titolo) {
-  
+  return movies.filter((element) => element.Title.includes(titolo))
 }
 console.log(searchByTitle("Lord"));
 
@@ -449,9 +449,33 @@ console.log(searchByTitle("Lord"));
   "match" deve includere tutti i film dell'array "movies" fornito che contengono la stringa fornita all'interno del proprio titolo, mentre "unmatch" deve includere tutti i rimanenti.
 */
 
+console.log("---Esercizio 18---");
+function searchAndDivide(titolo) {
+  const film = {
+    match: [],
+    unmatch: [],
+  };
+  for (i = 0; i < movies.length; i++)
+    if(movies[i].Title.includes(titolo))
+    film.match.push(movies[i]);
+    else 
+    film.unmatch.push(movies[i]);
+return film;
+}
+console.log(searchAndDivide("Lord"));
+
+
 /* ESERCIZIO 19
   Scrivi una funzione chiamata "removeIndex" che riceve un numero come parametro e ritorna l'array "movies" fornito privo dell'elemento nella posizione ricevuta come parametro.
 */
+
+console.log("---Esercizio 19---");
+function removeIndex(num) {
+  movies.splice(num, 1);
+  return movies;
+}
+console.log(removeIndex(2));
+
 
 // DOM (nota: gli elementi che selezionerai non si trovano realmente nella pagina)
 
@@ -459,17 +483,40 @@ console.log(searchByTitle("Lord"));
   Scrivi una funzione per selezionare l'elemento dotato di id "container" all'interno della pagina.
 */
 
+function container() {
+  const id = document.getElementById("container");
+}
+
 /* ESERCIZIO 21
   Scrivi una funzione per selezionare ogni tag <td> all'interno della pagina.
 */
+
+function tagselect() {
+  const td = document.querySelectorAll("td");
+}
 
 /* ESERCIZIO 22
   Scrivi una funzione che, tramite un ciclo, stampa in console il testo contenuto in ogni tag <td> all'interno della pagina.
 */
 
+console.log("---Esercizio 22---");
+function ciclo() {
+  const td = document.querySelectorAll("td");
+  for(let i = 0; i < td.length; i++){
+    console.log(td[i].innerText);
+  }
+}
+ciclo();
+
 /* ESERCIZIO 23
   Scrivi una funzione per aggiungere un background di colore rosso a ogni link all'interno della pagina.
 */
+
+function colore() {
+  const link = document.querySelectorAll("a");
+  link.forEach((element) => element.style.backgroundColor = "red")
+}
+colore();
 
 /* ESERCIZIO 24
   Scrivi una funzione per aggiungere un nuovo elemento alla lista non ordinata con id "myList".
