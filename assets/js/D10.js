@@ -486,6 +486,7 @@ console.log(removeIndex(2));
 function container() {
   const id = document.getElementById("container");
 }
+container();
 
 /* ESERCIZIO 21
   Scrivi una funzione per selezionare ogni tag <td> all'interno della pagina.
@@ -494,6 +495,7 @@ function container() {
 function tagselect() {
   const td = document.querySelectorAll("td");
 }
+tagselect();
 
 /* ESERCIZIO 22
   Scrivi una funzione che, tramite un ciclo, stampa in console il testo contenuto in ogni tag <td> all'interno della pagina.
@@ -522,13 +524,37 @@ colore();
   Scrivi una funzione per aggiungere un nuovo elemento alla lista non ordinata con id "myList".
 */
 
+function addList() {
+  const list = document.getElementById("myList");
+  const li = document.createElement("li");
+  list.appendChild(li);
+}
+addList();
+
 /* ESERCIZIO 25
   Scrivi una funzione per svuotare la lista non ordinata con id "myList".
 */
 
+function removeList() {
+  const list = document.getElementById("myList");
+  const li = document.querySelectorAll("#myList li");
+  for(let i = 0; i < li.length; i++){
+    list.removeChild(li[i]);
+  }
+}
+removeList();
+
 /* ESERCIZIO 26
   Scrivi una funzione per aggiungere ad ogni tag <tr> la classe CSS "test"
 */
+
+function  addClass() {
+  const tr = document.querySelectorAll("tr");
+  for(let i = 0; i < tr.length; i++){
+    tr[i].classList.add("test");
+  }
+}
+addClass();
 
 // [EXTRA] JS Avanzato
 
