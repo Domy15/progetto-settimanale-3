@@ -538,9 +538,8 @@ addList();
 function removeList() {
   const list = document.getElementById("myList");
   const li = document.querySelectorAll("#myList li");
-  for(let i = 0; i < li.length; i++){
-    list.removeChild(li[i]);
-  }
+  //fattibile anche col for
+  li.forEach((element) => list.removeChild(element));
 }
 removeList();
 
@@ -550,6 +549,7 @@ removeList();
 
 function  addClass() {
   const tr = document.querySelectorAll("tr");
+  //fattibile anche col forEach
   for(let i = 0; i < tr.length; i++){
     tr[i].classList.add("test");
   }
@@ -569,6 +569,16 @@ addClass();
   ***
 
 */
+
+// function halfTree(num) {
+//   for(let i = 0; i < num; i++){
+//     for (let j = num; j > 0; j--) {
+//       console.log("*");
+//     }
+//   }
+// }
+// halfTree(4);
+
 
 /* ESERCIZIO 28
   Crea una funzione chiamata "tree" che riceve un numero come parametro e costruisce un albero di "*" (asterischi) dell'altezza fornita.
