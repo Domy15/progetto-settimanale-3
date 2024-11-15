@@ -224,12 +224,17 @@ console.log(howManyDays("2003-02-15"));
 */
 
 console.log("---Esercizio 10---");
-function isTodayMyBirthday(element) {
-  const myBirthday = new Date();
+function isTodayMyBirthday() {
   const todayDate = new Date();
+  if(`${todayDate.getDate()}-${todayDate.getMonth()+1}` === "15-02"){
+    return true;
+  }else{
+    return false;
+  }
 }
 
 // Arrays & Oggetti
+console.log("È il mio compleanno =",isTodayMyBirthday());
 
 // NOTA: l'array "movies" usato in alcuni esercizi è definito alla fine di questo file
 
@@ -238,9 +243,23 @@ function isTodayMyBirthday(element) {
   in esso la proprietà chiamata come la stringa passata come secondo parametro.
 */
 
+console.log("---Esercizio 11---");
+function deleteProp(obj, string) {
+  delete obj[string];
+  return obj;
+}
+console.log(deleteProp({capelli: "rossi", occhi: "marroni", etnia: "caucasico",}, "occhi"));
+
 /* ESERCIZIO 12
   Scrivi una funzione chiamata "newestMovie" che trova il film più recente nell'array "movies" fornito.
 */
+
+console.log("---Esercizio 12---");
+function newestMovie() {
+  
+}
+console.log(newestMovie());
+
 
 /* ESERCIZIO 13
   Scrivi una funzione chiamata countMovies che ritorna il numero di film contenuti nell'array "movies" fornito.
